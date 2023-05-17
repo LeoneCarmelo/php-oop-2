@@ -6,12 +6,12 @@ require_once __DIR__ . '/Models/Laptop.php';
 
 
 $computers = [
-    $dell = new Laptop('Dell', 'Intel core i5', 20, 'Asus', 'https://picsum.photos/id/1/300/200', ' 2 cels', 'G3-15'),
-    $acer = new Laptop('Acer', 'Intel core i3', 4, 'Foxconn', 'https://picsum.photos/id/2/300/200', ' 2 cels', 'As3c'),
-    $asus = new Laptop('Asus', 'Intel core i7', 4, 'Asus', 'https://picsum.photos/id/3/300/200', '2 cels', 'Fx-50asd'),
-    $msi = new Desktop('MSI', 'Intel core i7', 8, 'Msi', 'https://picsum.photos/id/4/300/200', '650W', '60x50x25'),
-    $hp = new Desktop('HP', 'Intel core i5', 8, 'Foxconn', 'https://picsum.photos/id/5/300/200', '700W', '70x55x25'),
-    $lenovo = new Desktop('Lenovo', 'Intel core i9', 8, 'Asus', 'https://picsum.photos/id/6/300/200', '600W', '65x55x25'),
+    $dell = new Laptop('Dell', 'Intel core i5', 20, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_100433846/fee_786_587_png', ' 2 cels', 'G3-15'),
+    $acer = new Laptop('Acer', 'Intel core i3', 4, 'Foxconn', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_89371452/fee_786_587_png', ' 2 cels', 'As3c'),
+    $asus = new Laptop('Asus', 'Intel core i7', 4, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_101882122/fee_786_587_png', '2 cels', 'Fx-50asd'),
+    $msi = new Desktop('MSI', 'Intel core i7', 8, 'Msi', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88582664/fee_786_587_png', '650W', '60x50x25'),
+    $hp = new Desktop('HP', 'Intel core i5', 8, 'Foxconn', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105654035/fee_786_587_png', '700W', '70x55x25'),
+    $lenovo = new Desktop('Lenovo', 'Intel core i9', 8, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95083407/fee_786_587_png', '600W', '65x55x25'),
 ];
 //var_dump($dell);
 //var_dump($msi);
@@ -38,6 +38,7 @@ $computers = [
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -52,7 +53,7 @@ $computers = [
             <div class="row row-cols-3">
                 <?php foreach ($computers as $computer): ?>
                     <div class="col">
-                        <div class="card my-3">
+                        <div class="card my-3 p-5">
                             <img class="card-img-top" src="<?= $computer->img; ?>"></img>
                             <h3 class="text-center py-2">
                                 <?= $computer->brand; ?>
