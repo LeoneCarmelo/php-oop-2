@@ -6,12 +6,12 @@ require_once __DIR__ . '/Models/Laptop.php';
 
 
 $computers = [
-    $dell = new Laptop('Dell', 'Intel core i5', 20, 'Asus', ' 2 celle', 'G3-15'),
-    $acer = new Laptop('Acer', 'Intel core i3', 4, 'Foxconn', ' 2 celle', 'As3c'),
-    $asus = new Laptop('Asus', 'Intel core i7', 4, 'Asus', ' 2 celle', 'Fx-50asd'),
-    $msi = new Desktop('MSI', 'Intel core i7', 8, 'Msi', '650W', '60x50x25'),
-    $hp = new Desktop('HP', 'Intel core i5', 8, 'Foxconn', '700W', '70x55x25'),
-    $lenovo = new Desktop('HP', 'Intel core i9', 8, 'Asus', '600W', '650x55x25'),
+    $dell = new Laptop('Dell', 'Intel core i5', 20, 'Asus', 'https://picsum.photos/id/1/300/200', ' 2 cels', 'G3-15'),
+    $acer = new Laptop('Acer', 'Intel core i3', 4, 'Foxconn', 'https://picsum.photos/id/2/300/200', ' 2 cels', 'As3c'),
+    $asus = new Laptop('Asus', 'Intel core i7', 4, 'Asus', 'https://picsum.photos/id/3/300/200', '2 cels', 'Fx-50asd'),
+    $msi = new Desktop('MSI', 'Intel core i7', 8, 'Msi', 'https://picsum.photos/id/4/300/200', '650W', '60x50x25'),
+    $hp = new Desktop('HP', 'Intel core i5', 8, 'Foxconn', 'https://picsum.photos/id/5/300/200', '700W', '70x55x25'),
+    $lenovo = new Desktop('Lenovo', 'Intel core i9', 8, 'Asus', 'https://picsum.photos/id/6/300/200', '600W', '65x55x25'),
 ];
 //var_dump($dell);
 //var_dump($msi);
@@ -23,6 +23,7 @@ $computers = [
     echo $computer->brand;
 }
 */
+
 ?>
 
 <!doctype html>
@@ -42,7 +43,7 @@ $computers = [
 
 <body>
     <!-- Header -->
-    <header>
+    <header class="bg-dark text-white">
         <h1 class="text-center py-5">Product List</h1>
     </header>
     <!-- Main -->
@@ -52,28 +53,59 @@ $computers = [
                 <?php foreach ($computers as $computer): ?>
                     <div class="col">
                         <div class="card my-3">
+                            <img class="card-img-top" src="<?= $computer->img; ?>"></img>
                             <h3 class="text-center py-2">
                                 <?= $computer->brand; ?>
                             </h3>
+                            <h5 class="text-center">
+                                <?php
+                                if ($computer instanceof Desktop) {
+                                    echo 'Desktop';
+                                } else {
+                                    echo 'Laptop';
+                                }
+
+                                ?>
+                            </h5>
                             <ul>
-                                <li>
-                                    <?= $computer->model; ?>
-                                </li>
-                                <li>
+                                <!-- checking is a property is null -->
+                                <?php
+                                if (!$computer->model == null): ?>
+                                    <li>Model:
+                                        <?= $computer->model; ?>
+                                    </li>
+                                <?php else: ?>
+                                    <?php unset($computer->model); ?>
+                                <?php endif; ?>
+
+                                <li>Cpu:
                                     <?= $computer->cpu; ?>
                                 </li>
-                                <li>
-                                    <?= $computer->ram; ?>
+                                <li>Ram:
+                                    <?= $computer->ram; ?> Gb
                                 </li>
-                                <li>
+                                <li>Motherboard:
                                     <?= $computer->motherboard; ?>
                                 </li>
-                                <li>
-                                    <?= $computer->battery; ?>
-                                </li>
-                                <li>
-                                    <?= $computer->case; ?>
-                                </li>
+                                <!-- checking is a property is null -->
+                                <?php
+                                if (!$computer->battery == null): ?>
+                                    <li>Battery:
+                                        <?= $computer->battery; ?>
+                                    </li>
+                                <?php else: ?>
+                                    <?php unset($computer->battery); ?>
+                                <?php endif; ?>
+                                <!-- checking is a property is null -->
+                                <?php
+                                if (!$computer->case == null): ?>
+                                    <li>Case Dimension:
+                                        <?= $computer->case; ?>
+                                    </li>
+                                <?php else: ?>
+                                    <?php unset($computer->case); ?>
+                                <?php endif; ?>
+
                             </ul>
                         </div>
                     </div>
