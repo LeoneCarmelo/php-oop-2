@@ -4,6 +4,9 @@ require_once __DIR__ . '/Models/Computer.php';
 require_once __DIR__ . '/Models/Desktop.php';
 require_once __DIR__ . '/Models/Laptop.php';
 
+$lenovo = new Desktop('Lenovo', 'Intel core i9', 8, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95083407/fee_786_587_png', '600W', '65x55x25');
+
+$lenovo->setQuantity(1);
 
 $computers = [
     $dell = new Laptop('Dell', 'Intel core i5', 20, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_100433846/fee_786_587_png', ' 2 cels', 'G3-15'),
@@ -11,8 +14,11 @@ $computers = [
     $asus = new Laptop('Asus', 'Intel core i7', 4, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_101882122/fee_786_587_png', '2 cels', 'Fx-50asd'),
     $msi = new Desktop('MSI', 'Intel core i7', 8, 'Msi', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_88582664/fee_786_587_png', '650W', '60x50x25'),
     $hp = new Desktop('HP', 'Intel core i5', 8, 'Foxconn', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105654035/fee_786_587_png', '700W', '70x55x25'),
-    $lenovo = new Desktop('Lenovo', 'Intel core i9', 8, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95083407/fee_786_587_png', '600W', '65x55x25'),
+
 ];
+
+array_push($computers,$lenovo);
+
    
 //var_dump($dell);
 //var_dump($msi);
@@ -107,7 +113,7 @@ $computers = [
                                 <?php else: ?>
                                     <?php unset($computer->case); ?>
                                 <?php endif; ?>
-
+                                    <li><?php $computer->getQuantity();?></li>
                             </ul>
                         </div>
                     </div>
