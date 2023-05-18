@@ -6,6 +6,8 @@ class Desktop extends Computer{
         $this->powerSupply = $powerSupply;
         $this->case = $case;
     }
-
+    public function getType() {
+        return 'Desktop';                                            
+    }
 
 }

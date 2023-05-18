@@ -10,5 +10,9 @@ class Computer {
         $this->img = $img;
     }
 
+    public function getType() {
+        return 'Computer';                                            
+    }
+
 
 }

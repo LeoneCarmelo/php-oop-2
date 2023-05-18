@@ -13,6 +13,7 @@ $computers = [
     $hp = new Desktop('HP', 'Intel core i5', 8, 'Foxconn', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105654035/fee_786_587_png', '700W', '70x55x25'),
     $lenovo = new Desktop('Lenovo', 'Intel core i9', 8, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95083407/fee_786_587_png', '600W', '65x55x25'),
 ];
+   
 //var_dump($dell);
 //var_dump($msi);
 //echo $dell->brand;
@@ -50,7 +51,7 @@ $computers = [
     <!-- Main -->
     <main>
         <div class="container">
-            <div class="row row-cols-3">
+            <div class="row row-cols-1 row-cols-md-3">
                 <?php foreach ($computers as $computer): ?>
                     <div class="col">
                         <div class="card my-3 p-5">
@@ -60,12 +61,12 @@ $computers = [
                             </h3>
                             <h5 class="text-center">
                                 <?php
-                                if ($computer instanceof Desktop) {
-                                    echo 'Desktop';
-                                } else {
-                                    echo 'Laptop';
-                                }
-
+                                //if ($computer instanceof Desktop) {
+                                  //  echo 'Desktop';
+                                //} else {
+                                //    echo 'Laptop';
+                                //}
+                                    echo $computer->getType();
                                 ?>
                             </h5>
                             <ul>

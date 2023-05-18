@@ -6,4 +6,8 @@ class Laptop extends Computer {
         $this->battery = $battery;
         $this->model = $model;
     }
+
+    public function getType() {
+        return 'Laptop';                                            
+    }
 }
