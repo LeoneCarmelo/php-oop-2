@@ -11,9 +11,9 @@ trait Stock
 
     public function setQuantity(int $_quantity) {
         if ($_quantity > 0) {
-            return $this->quantity = 'In Stock';
+            return $this->quantity = 'In-Stock';
         } else {
-            return $this->quantity = 'Out of Stock';
+            return $this->quantity = 'Out-of-Stock';
         }
     }
 }

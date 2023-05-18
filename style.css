@@ -15,3 +15,11 @@ body {
 ul {
     list-style: none;
 }
+
+.In-Stock {
+    color: green;
+}
+
+.Out-of-Stock {
+    color: red;
+}
