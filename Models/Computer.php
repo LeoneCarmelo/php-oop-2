@@ -1,7 +1,13 @@
 <?php 
 
 class Computer {
-    public function __construct(public string $brand, public string $cpu, public int $ram, public string $motherboard, public string $img) {
+    public $brand;
+    public $cpu;
+    public $ram;
+    public $motherboard;
+    public $img;
+
+    public function __construct(string $brand,  string $cpu,  int $ram, string $motherboard, string $img) {
         $this->brand = $brand;
         $this->cpu = $cpu;
         $this->ram = $ram;
