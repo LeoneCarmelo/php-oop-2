@@ -4,11 +4,15 @@ require_once __DIR__ . '/Models/Computer.php';
 require_once __DIR__ . '/Models/Desktop.php';
 require_once __DIR__ . '/Models/Laptop.php';
 
-$lenovo = new Desktop('Lenovo', 'Intel core i9', 8, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95083407/fee_786_587_png', '600W', '65x55x25');
-$dell = new Laptop('Dell', 'Intel core i5', 20, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_100433846/fee_786_587_png', ' 2 cels', 'G3-15');
+try {
+    $lenovo = new Desktop('Lenovo', 'Intel core i9', 8, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95083407/fee_786_587_png', '600W', '65x55x25');
+    $dell = new Laptop('Dell', 'Intel core i5', 20, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_100433846/fee_786_587_png', ' 2 cels', 'G3-15');
+    $lenovo->setQuantity(0);
+    $dell->setQuantity(0);
 
-$lenovo->setQuantity(0);
-$dell->setQuantity(1);
+} catch (Exception $e) {
+   echo $e->getMessage();
+}
 
 $computers = [
 
@@ -18,7 +22,7 @@ $computers = [
     $hp = new Desktop('HP', 'Intel core i5', 8, 'Foxconn', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_105654035/fee_786_587_png', '700W', '70x55x25'),
 
 ];
-
+$computers[0]->setQuantity(2);
 array_unshift($computers, $dell);
 array_push($computers, $lenovo);
 
@@ -80,7 +84,7 @@ array_push($computers, $lenovo);
                             <ul>
                                 <!-- checking is a property is null -->
                                 <?php
-                                if (!$computer->model == null) : ?>
+                                if (isset($computer->model)) : ?>
                                     <li>Model:
                                         <?= $computer->model; ?>
                                     </li>
@@ -99,7 +103,7 @@ array_push($computers, $lenovo);
                                 </li>
                                 <!-- checking is a property is null -->
                                 <?php
-                                if (!$computer->battery == null) : ?>
+                                if (isset($computer->battery)) : ?>
                                     <li>Battery:
                                         <?= $computer->battery; ?>
                                     </li>
@@ -108,7 +112,7 @@ array_push($computers, $lenovo);
                                 <?php endif; ?>
                                 <!-- checking is a property is null -->
                                 <?php
-                                if (!$computer->case == null) : ?>
+                                if (isset($computer->case)) : ?>
                                     <li>Case Dimension:
                                         <?= $computer->case; ?>
                                     </li>

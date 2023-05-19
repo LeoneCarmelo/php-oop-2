@@ -6,14 +6,20 @@ trait Stock
     private $quantity;
 
     public function getQuantity() {
-        echo $this->quantity;
+        if (isset($this->quantity)){
+            if ($this->quantity > 0) {
+            echo $this->quantity = 'In-Stock';
+        } else {
+            echo $this->quantity = 'Out-of-Stock';
+        }
+        }
     }
 
     public function setQuantity(int $_quantity) {
-        if ($_quantity > 0) {
-            return $this->quantity = 'In-Stock';
+        if(is_int($_quantity)){
+                return $this->quantity = $_quantity;
         } else {
-            return $this->quantity = 'Out-of-Stock';
+            throw new Exception('Insert a number');
         }
     }
 }
