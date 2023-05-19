@@ -7,7 +7,7 @@ require_once __DIR__ . '/Models/Laptop.php';
 try {
     $lenovo = new Desktop('Lenovo', 'Intel core i9', 8, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_95083407/fee_786_587_png', '600W', '65x55x25');
     $dell = new Laptop('Dell', 'Intel core i5', 20, 'Asus', 'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_100433846/fee_786_587_png', ' 2 cels', 'G3-15');
-    $lenovo->setQuantity(0);
+    $lenovo->setQuantity(1);
     $dell->setQuantity(0);
 
 } catch (Exception $e) {
@@ -119,8 +119,8 @@ array_push($computers, $lenovo);
                                 <?php else : ?>
                                     <?php unset($computer->case); ?>
                                 <?php endif; ?>
-                                <li class="<?php $computer->getQuantity();?>">
-                                    <?php $computer->getQuantity(); ?>
+                                <li class="<?php $computer->getInfoStock();?>">
+                                    <?php $computer->getInfoStock(); ?>
                                 </li>
                             </ul>
                         </div>
